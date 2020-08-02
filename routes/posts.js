@@ -12,9 +12,8 @@ const storage = multer.diskStorage({
     if (req.user) {
       const ruta = path.join(
         __dirname,
-        "../public/images/uploads/" + req.user.username
+        "../public/images/uploads"
       );
-      if (!fs.existsSync(ruta)) fs.mkdirSync(ruta);
       return cb(null, ruta);
     }
     return cb(null, "");

@@ -103,7 +103,7 @@ module.exports = {
       post.userId = req.user._id;
       post.title = req.body.title;
       post.description = req.body.description;
-      post.imageUrl = `/images/uploads/${req.user.username}/${req.file.filename}`;
+      post.imageUrl = `/images/uploads/${req.file.filename}`;
       post
         .save()
         .then((image) => {
