@@ -1,0 +1,37 @@
+<div class="card p-5 w-50 m-5 bg-dark text-light">
+    <div class="card-header">
+        <h1>Registro</h1>
+    </div>
+    <div class="card-content">
+        <form action="/register" method="POST">
+            <div class="row">
+                <div class="form-group col-12">
+                    <label for="email">Correo electronico</label>
+                    <input type="email" class="form-control" id="email" name="email" placeholder="Correo electornico">
+                </div>
+                <div class="form-group col-12">
+                    <label for="username">Usuario</label>
+                    <input type="text" class="form-control" id="username" name="username"
+                        placeholder="Nombre de usuario">
+                </div>
+                <div class="form-group col-md-6 col-12">
+                    <label for="name">Nombre</label>
+                    <input type="text" class="form-control" id="name" name="name" placeholder="Nombre">
+                </div>
+                <div class="form-group col-md-6 col-12">
+                    <label for="lastName">Apellido</label>
+                    <input type="text" class="form-control" id="lastName" name="lastName" placeholder="Apellido">
+                </div>
+                <div class="form-group col-12">
+                    <label for="password">Contraseña</label>
+                    <input type="password" class="form-control" id="password" name="password" placeholder="Contraseña">
+                </div>
+                <div class="col-12 text-danger">
+
+                    {{error}}
+                </div>
+            </div>
+            <button type="submit" class="mt-2 btn btn-primary">Registrarse</button>
+        </form>
+    </div>
+</div>

@@ -1,0 +1,36 @@
+<div class="col-12 col-md-6 bg-dark text-light">
+    <div class="row">
+        <div class="col-12">
+            <div class="form-group">
+                <label for="email">Correo Electronico</label>
+                <input type="email" value="{{user.email}}" class="form-control" id="email" placeholder="Correo electronico"
+                    name="email">
+            </div>
+        </div>
+        <div class="col-12">
+            <div class="form-group">
+                <label for="username">Usuario</label>
+                <input type="text" value="{{user.username}}" class="form-control" id="username" placeholder="Usuario"
+                    name="username">
+            </div>
+        </div>
+        <div class="col-12 col-md-6">
+            <div class="form-group">
+                <label for="name">Nombre</label>
+                <input type="text" value="{{user.name}}" class="form-control" id="name" placeholder="Nombre"
+                    name="name">
+            </div>
+        </div>
+        <div class="col-12 col-md-6">
+            <div class="form-group">
+                <label for="lastname">Apellido</label>
+                <input type="text" class="form-control" value="{{user.lastname}}" id="lastname" placeholder="Apellido"
+                    name="lastname">
+            </div>
+        </div>
+        <div class="col-12">
+            <button type="submit" class="btn btn-primary">Guardar cambios</button>
+
+        </div>
+    </div>
+</div>

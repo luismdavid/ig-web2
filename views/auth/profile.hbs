@@ -1,0 +1,81 @@
+<div class="container-fluid">
+    <div class="row p-5">
+        <div class="col-12 col-md-3">
+            <div class="card">
+                <img src="https://cnnespanol.cnn.com/wp-content/uploads/2019/12/s_64a163f16ecbb099e52f2f8271f73cbbfcfc9034be4d646f7375e4db1ca6f3d7_1573501883482_ap_19001106049831-1.jpg?quality=100&strip=info&w=320&h=240&crop=1"
+                    alt="">
+            </div>
+            <nav class="navbar bg-light">
+                {{#contains url user._id}}
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link" href="/profile/{{user._id}}/personal">Datos Personales</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/profile/{{user._id}}/security">Seguridad</a>
+                    </li>
+                </ul>
+                {{/contains}}
+                <!-- Links -->
+
+            </nav>
+        </div>
+        <form class="col-12 col-md-9" action="" method="POST">
+            {{#contains url 'security'}}
+            {{> profile/security}}
+            {{/contains}}
+            {{#contains url 'personal'}}
+            {{> profile/personalInfo}}
+            {{/contains}}
+            {{#contains url 'posts'}}
+            <div class="container-fluid">
+                <div class="row">
+                    {{#each posts}}
+                    <div class="col-12 col-md-6 offset-md-3 mb-4 mt-4">
+                        <div class="card">
+                            <div class="card-header d-flex align-items-center" style="justify-content: space-between;">
+                                {{title}}
+                                {{#if private}}
+                                <ion-icon name="eye-off-outline"></ion-icon>
+                                {{/if}}
+                                {{#contains ../url ../user._id}}
+                                <div class="dropdown">
+                                    <ion-icon name="ellipsis-horizontal-outline" id="options" data-toggle="dropdown"
+                                        aria-haspopup="true" aria-expanded="false">
+                                    </ion-icon>
+                                    <div class="dropdown-menu" aria-labelledby="options">
+                                        <button class="dropdown-item bg-danger text-light" onclick="fetch('/post?id={{_id}}',{
+                                            method: 'DELETE'
+                                        }).then(() => location.reload());">Eliminar</button>
+                                        {{#if private}}
+                                        <button class="dropdown-item" onclick="fetch('/makePrivate?id={{_id}}&rev=true',{
+                                            method: 'PUT'
+                                        }).then(() => location.reload());">Hacer visible</button>
+                                        {{else}}
+                                        <button class="dropdown-item" onclick="fetch('/makePrivate?id={{_id}}',{
+                                            method: 'PUT'
+                                        }).then(() => location.reload());">Ocultar</button>
+                                        {{/if}}
+                                    </div>
+                                </div>
+
+                                {{/contains}}
+                            </div>
+                            <div class="card-content">
+                                <img class="img-responsive w-100" src="{{imageUrl}}" alt="">
+                            </div>
+                            <div class="card-footer">
+                                {{uploader.username}} - {{createdDate}}
+                                <p>
+                                    {{description}}
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    {{/each}}
+                </div>
+            </div>
+            {{/contains}}
+        </form>
+    </div>
+</div>
