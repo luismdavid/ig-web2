@@ -12,7 +12,7 @@ const storage = multer.diskStorage({
     if (req.user) {
       const ruta = path.join(
         __dirname,
-        "public/images/uploads"
+        "../public/images/uploads"
       );
       return cb(null, ruta);
     }
