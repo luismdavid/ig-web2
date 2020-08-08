@@ -8,7 +8,7 @@ router.get("/", function (req, res, next) {
   res.redirect("/post");
 });
 
-router.post("/genPDF", function (request, response) {
+router.get("/genPDF", function (request, response) {
   const doc = new PDFDocument({
     margins: {
       top: 20,
