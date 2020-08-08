@@ -17,7 +17,7 @@ router.post("/genPDF", function (request, response) {
       right: 40,
     },
   });
-  const { items, user } = request.body;
+  const { items, user } = JSON.parse(request.query.body);
   if (!items || !user) {
     response.status(400).send({
       msg: "Please send items to purchase.",
